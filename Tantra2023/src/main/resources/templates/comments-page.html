@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Comments</title>
+    <style>
+        .item {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <th:block th:if="${commentList.size() != 0}" th:each="index : ${#numbers.sequence(0, commentList.size() - 1)}">
+            <span th:text="${nameList[index][0]}"></span> : <span th:text="${commentList[index][0]}"></span>
+            <br>
+            <ul>
+                <th:block th:if="${commentList[index].size() != 1}" th:each="index2 : ${#numbers.sequence(1, commentList[index].size() - 1)}">
+                    <li>
+                        <span class="item" th:text="${nameList[index][index2]}"></span> : <span class="item" th:text="${commentList[index][index2]}"></span>
+                    </li>
+                <br>
+                </th>
+            </ul>
+            <form action="/submit-reply" method="post">
+                <input type="hidden" name="parentCommentIndex" th:value="${index}" />
+                <input type="hidden" name="pageNumber" th:value="${pageNumber}" />
+                <input type="text" name="replyText" placeholder="Add a reply..." />
+                <button type="submit">Reply</button>
+            </form>
+            <br>
+        </th>
+    </ul>
+
+    <form action="/new-comment" method="post">
+        <input type="hidden" name="pageNumber" th:value="${pageNumber}" />
+        <input type="text" name="newCommentText" placeholder="Add a new comment..." />
+        <button type="submit">Add Comment</button>
+    </form>
+</body>
+</html>
