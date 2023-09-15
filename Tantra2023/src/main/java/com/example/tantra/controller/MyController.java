@@ -61,7 +61,7 @@ public class MyController {
             });
             model.addAttribute("username", username);
             model.addAttribute("email", email);
-            return "success.html";
+            return "choose-quiz.html";
         } catch (FirebaseAuthException e) {
             e.printStackTrace();
             return "registration-error";
@@ -94,7 +94,7 @@ public class MyController {
                 });
                 String uidResult = future.get();
                 model.addAttribute("UID", uidResult);
-                return "login-success.html";
+                return "choose-quiz.html";
             } else {
             	return "login-failure.html";
             }

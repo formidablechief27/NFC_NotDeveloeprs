@@ -32,6 +32,9 @@
         <div>
             <p th:text="${verdict}"></p>
         </div>
+        <div>
+            <p th:text="${ans}"></p>
+        </div>
     </form>
     <form method="post" action="/next">
         <input type="hidden" name="questionId" th:value="${Id}" />
