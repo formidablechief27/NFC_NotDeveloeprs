@@ -38,6 +38,11 @@ public class MyController {
     	return "budget.html";
     }
     
+    @GetMapping("/org")
+    public String org(Model model) {
+    	return "org.html";
+    }
+    
     @PostMapping("/register")
     public String registerUser(@RequestParam String username, @RequestParam String email, @RequestParam String password, Model model) {
     	if(password.length() < 6) {
