@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Example</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .green {
+            color: rgb(12, 243, 12);
+        }
+
+        .orange {
+            color: rgb(246, 164, 12);
+        }
+
+        .red {
+            color: rgb(246, 11, 11);
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid #37517E; /* Light border color around the table */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #37517E; /* Header background color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz Results</h1>
+    
+    <table>
+        <tr>
+            <th>Question Number</th>
+            <th>Selected Answer</th>
+            <th>Correct Answer</th>
+            <th>Time Taken</th>
+            <th>Points</th>
+        </tr>
+        <!-- Loop through the data arrays to create table rows -->
+        <th:block th:each="index : ${#numbers.sequence(0, num.length-1)}">
+            <tr>
+                <td th:text="${num[index]}"></td>
+                <td th:text="${sub[index]}"></td>
+                <td th:text="${ans[index]}"></td>
+                <td th:text="${times[index]}"></td>
+                <td th:text="${points[index]}" th:class="${points[index] == 10 or points[index] == 9 or points[index] == 8} ? 'green' : (${points[index] == 7 or points[index] == 6 or points[index] == 5} ? 'orange' : 'red')"></td>
+            </tr>
+        </th:block>
+    </table>
+</body>
+</html>

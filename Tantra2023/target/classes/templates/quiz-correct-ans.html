@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Question</title>
+</head>
+<body>
+    <form>
+        <div>
+            <h2>Question:</h2>
+            <p th:text="${Question}"></p>
+        </div>
+        
+        <div>
+            <input type="radio" id="optionA" name="answer" value="A">
+            <label for="optionA" th:text="${A}"></label>
+        </div>
+        
+        <div>
+            <input type="radio" id="optionB" name="answer" value="B">
+            <label for="optionB" th:text="${B}"></label>
+        </div>
+        
+        <div>
+            <input type="radio" id="optionC" name="answer" value="C">
+            <label for="optionC" th:text="${C}"></label>
+        </div>
+        
+        <div>
+            <input type="radio" id="optionD" name="answer" value="D">
+            <label for="optionD" th:text="${D}"></label>
+        </div>
+        <div>
+            <p th:text="${verdict}"></p>
+        </div>
+    </form>
+    <form method="post" action="/next">
+        <input type="hidden" name="questionId" th:value="${Id}" />
+        <button type="submit">Next Question</button>
+    </form>
+</body>
+</html>
