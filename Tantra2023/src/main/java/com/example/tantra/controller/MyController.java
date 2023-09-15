@@ -33,6 +33,11 @@ public class MyController {
         return "login.html";
     }
     
+    @GetMapping("/budget")
+    public String budget(Model model) {
+    	return "budget.html";
+    }
+    
     @PostMapping("/register")
     public String registerUser(@RequestParam String username, @RequestParam String email, @RequestParam String password, Model model) {
     	if(password.length() < 6) {
@@ -61,7 +66,7 @@ public class MyController {
             });
             model.addAttribute("username", username);
             model.addAttribute("email", email);
-            return "choose-quiz.html";
+            return "index.html";
         } catch (FirebaseAuthException e) {
             e.printStackTrace();
             return "registration-error";
@@ -94,7 +99,7 @@ public class MyController {
                 });
                 String uidResult = future.get();
                 model.addAttribute("UID", uidResult);
-                return "choose-quiz.html";
+                return "index.html";
             } else {
             	return "login-failure.html";
             }

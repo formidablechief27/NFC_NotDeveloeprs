@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.threeten.bp.Duration;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.TreeMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -107,6 +110,13 @@ public class QuizController {
 	@GetMapping("/start")
 	public String start() {
 		return "choose-quiz.html";
+	}
+	
+	@GetMapping("/quiz1")
+	public String quiz1() {
+		i = 0;
+		subject = "Budgeting";
+		return "quiz-start.html";
 	}
 	
 	@PostMapping("/choose")
@@ -296,14 +306,169 @@ public class QuizController {
 		}
 	}
 	
+	public PriorityQueue<long[]> queue(int index){
+		PriorityQueue<long[]> queue = new PriorityQueue<long[]>((a,b)->{
+			if (a[index] < b[index]){
+                return 1;
+        	}
+        	else if (a[index] == b[index] && a[index+1] > b[index+1]) {
+        		return 1;
+        	}
+        	else {
+        		return -1;
+        	}
+		});
+        return queue;
+	}
+	
+	@GetMapping("/check")
+	public String thoda() {
+		return "choose-sub.html";
+	}
+	
+	@PostMapping("/leaderboard")
+	public String leaderboard(Model model, @RequestParam("selectedOption") String answer) {
+		HashMap<String, Integer> keys = new HashMap<>();
+		TreeMap<Integer, int[]> arr[] = new TreeMap[(int)1e5];
+		String keynames[] = new String[(int)1e5];
+		PriorityQueue<long[]> queue = queue(0);
+		CompletableFuture<Boolean> future = new CompletableFuture<>();
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(answer);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    String key = childSnapshot.getKey();
+                    arr[keys.size()+1] = new TreeMap<>();
+                    keys.put(key, keys.size()+1);
+                }
+                future.complete(true);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error: " + databaseError.getMessage());
+            }
+        });
+        try {
+			if(future.get()) {
+				for(Map.Entry<String, Integer> entry : keys.entrySet()) {
+					TreeMap<Integer, int[]> map = get(answer, entry.getKey());
+					arr[entry.getValue()] = map;
+					keynames[entry.getValue()] = entry.getKey();
+					int pts = 0;
+					int time = 0;
+					for(Map.Entry<Integer, int[]> ent : map.entrySet()) {
+						int a[] = ent.getValue();
+						pts += a[0];
+						if(a[1] != -1) time += a[1];
+					}
+					queue.add(new long[] {pts, time, entry.getValue()});
+				}
+				ArrayList<Integer> rank = new ArrayList<>();
+				ArrayList<String> users = new ArrayList<>();
+				ArrayList<Integer> points = new ArrayList<>();
+				ArrayList<Integer> penalty = new ArrayList<>();
+				ArrayList<Integer> score[] = new ArrayList[11];
+				for(int i=1;i<=10;i++) score[i] = new ArrayList<>();
+				int r = 1;
+				while(!queue.isEmpty()) {
+					long curr[] = queue.poll();
+					int index = (int)curr[2];
+					String getname = find(keynames[index]);
+					users.add(getname);
+					points.add((int)curr[0]);
+					penalty.add((int)curr[1]);
+					rank.add(r++);
+					TreeMap<Integer, int[]> cmap = arr[index];
+					for(Map.Entry<Integer, int[]> entry : cmap.entrySet()) {
+						int pt = entry.getValue()[0];
+						score[entry.getKey()].add(pt);
+					}
+				}
+				model.addAttribute("subject", answer);
+				model.addAttribute("rank", rank);
+				model.addAttribute("names", users);
+				model.addAttribute("pts", points);
+				model.addAttribute("penalty", penalty);
+				for(int i=1;i<=10;i++) model.addAttribute("score"+i, score[i]);
+				return "leaderboard.html";
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public TreeMap<Integer, int[]> get(String subject, String key){
+		TreeMap<Integer, int[]> map = new TreeMap<>();
+		CompletableFuture<Boolean> future = new CompletableFuture<>();
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(subject).child(key);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                	String val = childSnapshot.getValue(String.class);
+                	int pts = Integer.parseInt(val.substring(0, val.indexOf(' ')));
+                	int time = Integer.parseInt(val.substring(val.indexOf(' ')+1, val.length()));
+                	map.put(Integer.parseInt(childSnapshot.getKey()), new int[] {pts, time});
+                }
+                future.complete(true);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error: " + databaseError.getMessage());
+            }
+        });
+        try {
+			if(future.get()) {
+				return map;
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+	}
+	
+	public String find(String key) {
+		String ans = "";
+		DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("users").child(key).child("username");
+        CompletableFuture<String> future = new CompletableFuture<>();
+        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                future.complete(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                future.completeExceptionally(error.toException());
+            }
+        });
+        try {
+			return future.get();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+	}
+	
 	public void DataEntry() {
 		Map<String, Object> userData = new HashMap<>();
-		Long total = 0L;
         for(int i=0;i<10;i++) {
-        	userData.put(Integer.toString(i+1), points[this.i][i]);
-        	total += points[this.i][i];
+        	userData.put(Integer.toString(i+1), points[this.i][i] + " " + times[this.i][i]);
         }
-        userData.put("Total", total);
         DatabaseReference databaseReference = FirebaseDatabase.getInstance()
                 .getReference("users")
                 .child(Server.ID).child(subject);
@@ -316,6 +481,17 @@ public class QuizController {
                 }
 			}
         });
-        
+        databaseReference = FirebaseDatabase.getInstance()
+                .getReference(subject)
+                .child(Server.ID);
+        databaseReference.setValue(userData, new DatabaseReference.CompletionListener() {
+			@Override
+			public void onComplete(DatabaseError error, DatabaseReference ref) {
+				if (error != null) {
+                    error.toException().printStackTrace();
+                } else {
+                }
+			}
+        });
 	}
 }
