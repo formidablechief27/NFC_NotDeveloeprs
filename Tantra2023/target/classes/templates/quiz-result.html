@@ -34,11 +34,20 @@
         th {
             background-color: #37517E; /* Header background color */
         }
+
+        table tr:first-child th {
+            color: white;
+        }
     </style>
 </head>
 <body>
     <h1>Quiz Results</h1>
-    
+    <div>
+        <p>Subject : <span th:text="${subject}"></span></p>
+    </div>
+    <div>
+        <p>Total Score : <span th:text="${pts}"></span></p>
+    </div>
     <table>
         <tr>
             <th>Question Number</th>
