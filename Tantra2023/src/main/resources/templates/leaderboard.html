@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Example</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .green {
+            color: rgb(12, 243, 12);
+        }
+
+        .orange {
+            color: rgb(246, 164, 12);
+        }
+
+        .red {
+            color: rgb(246, 11, 11);
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid #37517E; /* Light border color around the table */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #37517E; /* Header background color */
+        }
+
+        table tr:first-child th {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz Leaderboard</h1>
+    <div>
+        <p>Subject : <span th:text="${subject}"></span></p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Points</th>
+                <th>Penalty</th>
+                <th>Question 1</th>
+                <th>Question 2</th>
+                <th>Question 3</th>
+                <th>Question 4</th>
+                <th>Question 5</th>
+                <th>Question 6</th>
+                <th>Question 7</th>
+                <th>Question 8</th>
+                <th>Question 9</th>
+                <th>Question 10</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="id, i : ${names}">
+                <td th:text="${rank[i.index]}"></td>
+                <td th:text="${id}"></td>
+                <td th:text="${pts[i.index]}"></td>
+                <td th:text="${penalty[i.index]}"></td>
+                <td th:text="${score1[i.index]}" th:class="${score1[i.index] == 10 or score1[i.index] == 9 or score1[i.index] == 8} ? 'green' : (${score1[i.index] == 7 or score1[i.index] == 6 or score1[i.index] == 5} ? 'orange' : 'red')"></td>
+                <td th:text="${score2[i.index]}" th:class="${score2[i.index] == 10 or score2[i.index] == 9 or score2[i.index] == 8} ? 'green' : (${score2[i.index] == 7 or score2[i.index] == 6 or score2[i.index] == 5} ? 'orange' : 'red')"></td>
+                <td th:text="${score3[i.index]}" th:class="${score3[i.index] == 10 or score3[i.index] == 9 or score3[i.index] == 8} ? 'green' : (${score3[i.index] == 7 or score3[i.index] == 6 or score3[i.index] == 5} ? 'orange' : 'red')"></td>
+                <td th:text="${score4[i.index]}" th:class="${score4[i.index] == 10 or score4[i.index] == 9 or score4[i.index] == 8} ? 'green' : (${score4[i.index] == 7 or score4[i.index] == 6 or score4[i.index] == 5} ? 'orange' : 'red')"></td>
+                <td th:text="${score5[i.index]}" th:class="${score5[i.index] == 10 or score5[i.index] == 9 or score5[i.index] == 8} ? 'green' : (${score5[i.index] == 7 or score5[i.index] == 6 or score5[i.index] == 5} ? 'orange' : 'red')"></td>
+                <td th:text="${score6[i.index]}" th:class="${score6[i.index] == 10 or score6[i.index] == 9 or score6[i.index] == 8} ? 'green' : (${score6[i.index] == 7 or score6[i.index] == 6 or score6[i.index] == 5} ? 'orange' : 'red')"></td>
+                <td th:text="${score7[i.index]}" th:class="${score7[i.index] == 10 or score7[i.index] == 9 or score7[i.index] == 8} ? 'green' : (${score7[i.index] == 7 or score7[i.index] == 6 or score7[i.index] == 5} ? 'orange' : 'red')"></td>
+                <td th:text="${score8[i.index]}" th:class="${score8[i.index] == 10 or score8[i.index] == 9 or score8[i.index] == 8} ? 'green' : (${score8[i.index] == 7 or score8[i.index] == 6 or score8[i.index] == 5} ? 'orange' : 'red')"></td>
+                <td th:text="${score9[i.index]}" th:class="${score9[i.index] == 10 or score9[i.index] == 9 or score9[i.index] == 8} ? 'green' : (${score9[i.index] == 7 or score9[i.index] == 6 or score9[i.index] == 5} ? 'orange' : 'red')"></td>
+                <td th:text="${score10[i.index]}" th:class="${score10[i.index] == 10 or score10[i.index] == 9 or score10[i.index] == 8} ? 'green' : (${score10[i.index] == 7 or score10[i.index] == 6 or score10[i.index] == 5} ? 'orange' : 'red')"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
