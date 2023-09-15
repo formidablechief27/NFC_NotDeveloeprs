@@ -34,7 +34,10 @@ public class MyController {
     }
     
     @PostMapping("/register")
-    public String registerUser(@RequestParam String username, @RequestParam String email, @RequestParam String password, @RequestParam String gender, Model model) {
+    public String registerUser(@RequestParam String username, @RequestParam String email, @RequestParam String password, Model model) {
+    	if(password.length() < 6) {
+    		 return "registration-error";
+    	}
     	try {
             UserRecord.CreateRequest request = new UserRecord.CreateRequest()
                     .setEmail(email)
@@ -45,7 +48,6 @@ public class MyController {
                     .child(userRecord.getUid());
             Map<String, Object> userData = new HashMap<>();
             userData.put("username", username);
-            userData.put("gender", gender);
             userData.put("email", email);
             userData.put("password", password);
             databaseReference.setValue(userData, new DatabaseReference.CompletionListener() {
@@ -59,7 +61,6 @@ public class MyController {
             });
             model.addAttribute("username", username);
             model.addAttribute("email", email);
-            model.addAttribute("gender", gender);
             return "success.html";
         } catch (FirebaseAuthException e) {
             e.printStackTrace();
