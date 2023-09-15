@@ -27,6 +27,16 @@ import com.google.firebase.database.core.SyncTree.CompletionListener;
 public class MyController {
 	
 	String pass = "";
+	
+	@GetMapping("/index")
+	public String home(Model model) {
+		return "index.html";
+	}
+	
+	@GetMapping("/about")
+	public String about(Model model) {
+		return "about.html";
+	}
 
     @GetMapping("/hello")
     public String index(Model model) {
