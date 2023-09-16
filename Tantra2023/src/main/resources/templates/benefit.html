@@ -74,6 +74,16 @@
     .step p {
       margin: 0;
     }
+    .translateH{
+        background-color: transparent;
+        color: #37517E;
+        border: 1px solid transparent;
+        transition: 0.3s;
+        border-radius: 10px;
+    }
+    .translateH:hover{
+        color: #83a3da;
+    }
     </style>
 </head>
 
@@ -110,7 +120,7 @@
                 <br>
                 <br>
                 <br>
-                <section id="team" class="team section-bg">
+                <section id="team1" class="team section-bg">
                     <div class="container" data-aos="fade-up">
                         <div class="row" style="font-size: 1.5rem;">
 
@@ -160,7 +170,7 @@
                             <div class="container" data-aos="fade-up">
 
                                 <div class="section-title">
-                                    <h2>STEPS TO CREATE A BANK ACCOUNT</h2>
+                                    <h2>STEPS TO CREATE A BANK ACCOUNT</h2><button onclick="changeToHindi()" class="translateH">हिंदी में प्रदर्शन</button>
                                     <p>
                                         While the specific steps to open a bank account can vary slightly from one bank to another and from one country to another, Here's a general procedure that is commonly followed.
                                     </p>
@@ -169,7 +179,8 @@
                                 <div class="step">
                                     <h4>Step 1: Research and Choose a Bank</h4>
                                     <p>
-                                        Start by researching different banks and the types of accounts they offer. Consider factors like fees, account types, minimum balance requirements, interest rates, ATM accessibility, and online banking features. Choose a bank that suits your needs and preferences.
+                                        Start by researching different banks and the types of accounts they offer. Consider factors like fees, account types, minimum balance requirements, interest rates, ATM accessibility, and online banking features. Choose a bank that suits your needs and preferences. 
+                                            
                                     </p>
                                 </div>
                                   
@@ -323,15 +334,129 @@
                           </div>
 
 
-                        <script src="assets/vendor/aos/aos.js"></script>
-                        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-                        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-                        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-                        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-                        <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-                        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="assets/vendor/aos/aos.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>    
+        <script src="assets/js/main.js"></script>
 
-                        <script src="assets/js/main.js"></script>
+        <script>
+            var eng = document.getElementById('team').innerHTML;
+            
+            function changeToHindi() {
+                document.getElementById('team').innerHTML = `<div class="container" data-aos="fade-up">
+                                <div class="section-title">
+                                    <h2>बैंक खाता बनाने के लिए कदम</h2><button onclick="changeToEng()" class="translateH">Translate to English</button>
+                                    <p>
+                                        बैंक खाता खोलने के विशिष्ट कदम थोड़े से विभिन्न बैंकों और एक देश से दूसरे में भिन्न हो सकते हैं, यहाँ एक सामान्य प्रक्रिया है जो आमतौर पर अनुसरण की जाती है।
+                                    </p>
+                                </div>
+
+                                <div class="step">
+                                    <h4>कदम 1: बैंक चुनना और विशेषताओं का चयन करना</h4>
+                                    <p>
+                                        विभिन्न बैंकों का अनुसंधान करें और उनके द्वारा प्रस्तुत खातों के प्रकारों का अध्ययन करें। शुल्क, खाते के प्रकार, न्यूनतम शेष राशि की आवश्यकता, ब्याज दर, एटीएम पहुंचनीयता और ऑनलाइन बैंकिंग की विशेषताओं जैसे कारकों का विचार करें। अपनी आवश्यकताओं और पसंदों के अनुसार एक बैंक का चयन करें। 
+                                            
+                                    </p>
+                                </div>
+                                  
+                                <div class="step" style="background-color: #b5c5e2; color: black;">
+                                    <h4>कदम 2: खाते के प्रकार का चयन करें</h4>
+                                    <p>
+                                        आपकी वित्तीय लक्ष्यों के आधार पर आपको खाता खोलने के लिए चाहिए विभिन्न प्रकारों का चयन करें। सामान्य रूप से इसमें बचत खाते, चेकिंग खाते, नियमित जमा खाते या आपकी आवश्यकताओं के आधार पर विशेषित खातों जैसे प्रकार शामिल होते हैं।
+                                    </p>
+                                </div>
+
+                                <div class="step">
+                                    <h4>कदम 3: निकटतम शाखा या ऑनलाइन आवेदन करें</h4>
+                                    <p>
+                                        बैंक के आधार पर, आप या तो स्थानीय शाखा पर जा सकते हैं या बैंक की वेबसाइट के माध्यम से ऑनलाइन आवेदन कर सकते हैं।
+                                    </p>
+                                </div>
+
+                                <div class="step" style="background-color: #b5c5e2; color: black;">
+                                    <h4>कदम 4: आवश्यक दस्तावेज़ और जानकारी जमा करें</h4>
+                                    <p>
+                                        बैंक आमतौर पर पहचान सत्यापन और खाता स्थापना के लिए कुछ दस्तावेज़ और जानकारी आवश्यक करते हैं। सामान्य आवश्यकताओं में शामिल हैं:
+                                        <ul>
+                                            <li>पहचान का प्रमाण (उदाहरण के लिए: पासपोर्ट, ड्राइविंग लाइसेंस, या नेशनल आईडी)</li>
+                                            <li>पते का प्रमाण (उदाहरण के लिए: यूटिलिटी बिल, किराए का समझौता, या बैंक स्टेटमेंट)</li>
+                                            <li>सोशल सिक्योरिटी नंबर (SSN) या टैक्स पहचान संख्या (TIN)</li>
+                                            <li>रोजगार या आय जानकारी</li>
+                                        </ul>
+                                    </p>
+                                </div>
+
+                                <div class="step">
+                                    <h4>कदम 5: आवेदन पत्र पूरा करें</h4>
+                                    <p>
+                                        बैंक द्वारा प्रदान की गई खाता आवेदन पत्रिका को भरें और सुनिश्चित करें कि आप सही और पूरी जानकारी प्रदान करते हैं।
+                                    </p>
+                                </div>
+
+                                <div class="step" style="background-color: #b5c5e2; color: black;">
+                                    <h4>कदम 6: आवश्यक दस्तावेज़ जमा करें</h4>
+                                    <p>
+                                        पूरे किए गए आवेदन पत्र के साथ आवश्यक दस्तावेज़ जमा करें। यदि आप ऑनलाइन आवेदन कर रहे हैं, तो आपको दस्तावेज़ की स्कैन की गई प्रतियाँ अपलोड करनी पड़ सकती हैं।
+                                    </p>
+                                </div>
+
+                                <div class="step">
+                                    <h4>कदम 7: प्रारंभिक निधि जमा करें</h4>
+                                    <p>
+                                        खाता खोलने के लिए आवश्यक प्रारंभिक जमा करें। कुछ खातों की न्यूनतम जमा की आवश्यकता होती है, इसलिए सुनिश्चित करें कि आप इस मानक को पूरा करते हैं।
+                                    </p>
+                                </div>
+
+                                <div class="step" style="background-color: #b5c5e2; color: black;">
+                                    <h4>कदम 8: अनुबंध और समझौतों की समीक्षा करें</h4>
+                                    <p>
+                                        खाते की शर्तें और नियमों, शुल्क, ब्याज दरों और निकासी नीतियों सहित खाते की शर्तों की ध्यानपूर्वक समीक्षा करें। यदि सब कुछ आपकी उम्मीदों को पूरा करता है, तो खाते के समझौते पर हस्ताक्षर करें।
+                                    </p>
+                                </div>
+
+                                <div class="step">
+                                    <h4>कदम 9: खाते की विवरण प्राप्त करें</h4>
+                                    <p>
+                                        जब आपका आवेदन स्वीकृत होता है, तो आपको खाते की विवरण प्राप्त होगी, जिसमें आपके खाता नंबर और अन्य संबंधित जानकारी शामिल होगी। यह आपको अपने बैंक खाते का उपयोग करने की संभावना देगी।
+                                    </p>
+                                </div>
+
+                                <div class="step" style="background-color: #b5c5e2; color: black;">
+                                    <h4>कदम 10: अपना खाता सक्रिय करें</h4>
+                                    <p>
+                                        बैंक के निर्देशों का पालन करें और अपने खाते को सक्रिय करने के लिए आवश्यक चरणों का पालन करें। यह आपके खाते को सक्रिय करने के लिए ऑनलाइन बैंकिंग सेटअप, डेबिट कार्ड प्राप्त करने या अन्य आवश्यक कदमों को शामिल कर सकता है।
+                                    </p>
+                                </div>
+
+                                <div class="step">
+                                    <h4>कदम 11: अपने खाते का प्रयोग करें</h4>
+                                    <p>
+                                        विभिन्न संवाद माध्यमों के माध्यम से जैसे की एटीएम, ऑनलाइन बैंकिंग, मोबाइल ऐप्स, और शाखा सेवाओं के माध्यम से जमा, निकासी, हस्तांतरण और अन्य बैंक लेन-देन के लिए अपने खाते का प्रयोग करना शुरू करें।
+                                    </p>
+                                </div>
+                                <br><br>
+                                <h2 style=" font-weight: bold; margin-bottom: 10px;color: #37517E;">शून्य बैलेंस बचत खाता वाले बैंक:</h2>
+                                <ul style="list-style-type: disc; padding-left: 20px;">
+                                    <li style="font-size: 1.2em; margin-bottom: 10px;"><a href="https://digital.idfcfirstbank.com/apply/savings?icid=sa_prodbanner_applycta" target="_blank">आईडीएफसी फर्स्ट बैंक प्रथम बचत खाता</a></li>
+                                    <li style="font-size: 1.2em; margin-bottom: 10px;"><a href="https://www.yesbank.in/personal-banking/yes-individual/savings-account" target="_blank">येस बैंक स्मार्ट सैलरी लाभ</a></li>
+                                    <li style="font-size: 1.2em; margin-bottom: 10px;"><a href="https://www.indusind.com/in/en/personal/accounts/saving-account.html" target="_blank">इंडसइंड बैंक-इंडस ऑनलाइन बचत खाता</a></li>
+                                    <li style="font-size: 1.2em; margin-bottom: 10px;"><a href="https://www.dbs.com/digibank/in/banking/account/savings-account" target="_blank">डीबीएस-डिजीसेविंग्स</a></li>
+                                    <li style="font-size: 1.2em; margin-bottom: 10px;"><a href="https://www.kotak811.com/open-zero-balance-savings-account?source=BingNew&banner=kotak-811-Search-Brand-All-Location-Desktop-2022+Bank-Account-Phrase&pubild=kotak+bank+account&msclkid=94fb4dc168121c310fde28c5d3a30a3e" target="_blank">कोटक महिंद्रा बैंक-811 डिजिटल बैंक खाता</a></li>
+                                    <li style="font-size: 1.2em; margin-bottom: 10px;"><a href="https://www.hdfcbank.com/personal/save/accounts/savings-accounts" target="_blank">एचडीएफसी बैंक - मौलिक बचत बैंक जमा खाता</a></li>
+                                    <li style="font-size: 1.2em; margin-bottom: 10px;"><a href="https://sbi.co.in/web/personal-banking/accounts/saving-account/savings-bank-account" target="_blank">एसबीआई - मौलिक बचत बैंक जमा खाता</a></li>
+                                    <li style="font-size: 1.2em; margin-bottom: 10px;"><a href="https://www.sc.com/in/deposits/basic-banking-account/" target="_blank">स्टैंडर्ड चार्टर्ड मौलिक बचत बैंक जमा खाता</a></li>
+                                </ul>
+                            </div>`;
+            }
+
+            function changeToEng() {
+                document.getElementById('team').innerHTML = eng;
+            }
+        </script>
 
 </body>
 
