@@ -33,9 +33,9 @@ public class QuizController {
 	int num[][] = { { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
 			{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 } };
 	String[][] ques = {
-			{ "This is Question 1", "This is Question 2", "This is Question 3", "This is Question 4",
-					"This is Question 5", "This is Question 6", "This is Question 7", "This is Question 8",
-					"This is Question 9", "This is Question 10" },
+			{ "What is the core of building financial literacy?", "What is one primary benefit of budgeting mentioned in the passage?", "How does budgeting help prevent excessive spending?", "What financial space does budgeting create?",
+					"Which budgeting method allocates 50% of income to essential needs, 30% to wants, and 20% to savings or debt repayment?", "In the Zero-Based Method, what happens to every dollar of income?", "What does the Envelope Method involve?", "How does budgeting relate to financial literacy?",
+					"What is the primary purpose of the 50-30-20 budgeting method?", "What does budgeting allow individuals to do with their finances?" },
 			{ "This is Question 1", "This is Question 2", "This is Question 3", "This is Question 4",
 					"This is Question 5", "This is Question 6", "This is Question 7", "This is Question 8",
 					"This is Question 9", "This is Question 10" },
@@ -48,7 +48,7 @@ public class QuizController {
 			{ "This is Question 1", "This is Question 2", "This is Question 3", "This is Question 4",
 					"This is Question 5", "This is Question 6", "This is Question 7", "This is Question 8",
 					"This is Question 9", "This is Question 10" } };
-	String[][] ans = { { "A", "A", "A", "B", "B", "B", "C", "C", "D", "D" },
+	String[][] ans = { { "B", "B", "C", "C", "C", "C", "B", "C", "D", "B" },
 			{ "A", "A", "A", "B", "B", "B", "C", "C", "D", "D" }, { "A", "A", "A", "B", "B", "B", "C", "C", "D", "D" },
 			{ "A", "A", "A", "B", "B", "B", "C", "C", "D", "D" },
 			{ "A", "A", "A", "B", "B", "B", "C", "C", "D", "D" } };
@@ -63,8 +63,8 @@ public class QuizController {
 			{ false, false, false, false, false, false, false, false, false, false },
 			{ false, false, false, false, false, false, false, false, false, false } };
 	String[][] opA = {
-			{ "Option A", "Option A", "Option A", "Option A", "Option A", "Option A", "Option A", "Option A",
-					"Option A", "Option A" },
+			{ "Investing in stocks", "Generating more income", "It encourages borrowing money for nonessentials", "Space for more debt", "Zero-Based Method", "It's invested in stocks", "Storing money in a physical envelope under the mattress", "It has no relationship with financial literacy",
+					"To spend all income on wants", "To spend all income on wants" },
 			{ "Option A", "Option A", "Option A", "Option A", "Option A", "Option A", "Option A", "Option A",
 					"Option A", "Option A" },
 			{ "Option A", "Option A", "Option A", "Option A", "Option A", "Option A", "Option A", "Option A",
@@ -74,8 +74,8 @@ public class QuizController {
 			{ "Option A", "Option A", "Option A", "Option A", "Option A", "Option A", "Option A", "Option A",
 					"Option A", "Option A" } };
 	String[][] opB = {
-			{ "Option B", "Option B", "Option B", "Option B", "Option B", "Option B", "Option B", "Option B",
-					"Option B", "Option B" },
+			{ "Developing good spending habits", "Monitoring and controlling expenditures", "It promotes reckless spending on luxury items", "Space for investments only", "Envelope Method", "It's left unallocated", "Digitally separating money for different expenses", "It is the only aspect of financial literacy",
+					"To save 50% of income", "It helps them track and manage expenses" },
 			{ "Option B", "Option B", "Option B", "Option B", "Option B", "Option B", "Option B", "Option B",
 					"Option B", "Option B" },
 			{ "Option B", "Option B", "Option B", "Option B", "Option B", "Option B", "Option B", "Option B",
@@ -85,8 +85,8 @@ public class QuizController {
 			{ "Option B", "Option B", "Option B", "Option B", "Option B", "Option B", "Option B", "Option B",
 					"Option B", "Option B" } };
 	String[][] opC = {
-			{ "Option C", "Option C", "Option C", "Option C", "Option C", "Option C", "Option C", "Option C",
-					"Option C", "Option C" },
+			{ "Saving for retirement", "Maximizing investment returns", "It prioritizes spending on essentials and monitors discretionary spending", "Space for essentials and savings", "50-30-20 Method", "It's assigned a purpose, either for expenses or savings", "Keeping all money in a single account", "It is a core component of developing financial literacy",
+					"To allocate money equally to all expenses", "It guarantees financial success" },
 			{ "Option C", "Option C", "Option C", "Option C", "Option C", "Option C", "Option C", "Option C",
 					"Option C", "Option C" },
 			{ "Option C", "Option C", "Option C", "Option C", "Option C", "Option C", "Option C", "Option C",
@@ -96,8 +96,8 @@ public class QuizController {
 			{ "Option C", "Option C", "Option C", "Option C", "Option C", "Option C", "Option C", "Option C",
 					"Option C", "Option C" } };
 	String[][] opD = {
-			{ "Option D", "Option D", "Option D", "Option D", "Option D", "Option D", "Option D", "Option D",
-					"Option D", "Option D" },
+			{ "Paying off debts", "Increasing credit card limits", "It eliminates all discretionary spending", "Space for nonessential spending", "80-10-10 Method", "It's donated to charity", "Investing money in envelopes", "It is only important for financial experts",
+					"To prioritize essential needs and savings", "It eliminates the need for financial goals" },
 			{ "Option D", "Option D", "Option D", "Option D", "Option D", "Option D", "Option D", "Option D",
 					"Option D", "Option D" },
 			{ "Option D", "Option D", "Option D", "Option D", "Option D", "Option D", "Option D", "Option D",
@@ -119,27 +119,32 @@ public class QuizController {
 		return "quiz-start.html";
 	}
 	
-	@PostMapping("/choose")
-	public String choose(@RequestParam("selectedOption") String answer) {
-		subject = answer;
-		if(answer.equals("Budgeting")) {
-			i = 0;
-		}
-		if(answer.equals("Improving Credit")) {
-			i = 1;
-		}
-		if(answer.equals("Saving")) {
-			i = 2;
-		}
-		if(answer.equals("Borrowing and repaying debt")) {
-			i = 3;
-		}
-		if(answer.equals("Investing")) {
-			i = 4;
-		}
-		if(i == -1) return "choose-quiz.html";
+	@GetMapping("/quiz2")
+	public String quiz2() {
+		i = 1;
+		subject = "Improving Credit";
 		return "quiz-start.html";
-		
+	}
+	
+	@GetMapping("/quiz3")
+	public String quiz3() {
+		i = 2;
+		subject = "Saving";
+		return "quiz-start.html";
+	}
+	
+	@GetMapping("/quiz4")
+	public String quiz4() {
+		i = 3;
+		subject = "Borrowing and repaying debt";
+		return "quiz-start.html";
+	}
+	
+	@GetMapping("/quiz5")
+	public String quiz5() {
+		i = 4;
+		subject = "Investing";
+		return "quiz-start.html";
 	}
 
 	@GetMapping("/ques")
@@ -321,13 +326,321 @@ public class QuizController {
         return queue;
 	}
 	
-	@GetMapping("/check")
-	public String thoda() {
-		return "choose-sub.html";
+	@GetMapping("/leaderboard1")
+	public String leaderboard1(Model model) {
+		String answer = "Budgeting";
+		HashMap<String, Integer> keys = new HashMap<>();
+		TreeMap<Integer, int[]> arr[] = new TreeMap[(int)1e5];
+		String keynames[] = new String[(int)1e5];
+		PriorityQueue<long[]> queue = queue(0);
+		CompletableFuture<Boolean> future = new CompletableFuture<>();
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(answer);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    String key = childSnapshot.getKey();
+                    arr[keys.size()+1] = new TreeMap<>();
+                    keys.put(key, keys.size()+1);
+                }
+                future.complete(true);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error: " + databaseError.getMessage());
+            }
+        });
+        try {
+			if(future.get()) {
+				for(Map.Entry<String, Integer> entry : keys.entrySet()) {
+					TreeMap<Integer, int[]> map = get(answer, entry.getKey());
+					arr[entry.getValue()] = map;
+					keynames[entry.getValue()] = entry.getKey();
+					int pts = 0;
+					int time = 0;
+					for(Map.Entry<Integer, int[]> ent : map.entrySet()) {
+						int a[] = ent.getValue();
+						pts += a[0];
+						if(a[1] != -1) time += a[1];
+					}
+					queue.add(new long[] {pts, time, entry.getValue()});
+				}
+				ArrayList<Integer> rank = new ArrayList<>();
+				ArrayList<String> users = new ArrayList<>();
+				ArrayList<Integer> points = new ArrayList<>();
+				ArrayList<Integer> penalty = new ArrayList<>();
+				ArrayList<Integer> score[] = new ArrayList[11];
+				for(int i=1;i<=10;i++) score[i] = new ArrayList<>();
+				int r = 1;
+				while(!queue.isEmpty()) {
+					long curr[] = queue.poll();
+					int index = (int)curr[2];
+					String getname = find(keynames[index]);
+					users.add(getname);
+					points.add((int)curr[0]);
+					penalty.add((int)curr[1]);
+					rank.add(r++);
+					TreeMap<Integer, int[]> cmap = arr[index];
+					for(Map.Entry<Integer, int[]> entry : cmap.entrySet()) {
+						int pt = entry.getValue()[0];
+						score[entry.getKey()].add(pt);
+					}
+				}
+				model.addAttribute("subject", answer);
+				model.addAttribute("rank", rank);
+				model.addAttribute("names", users);
+				model.addAttribute("pts", points);
+				model.addAttribute("penalty", penalty);
+				for(int i=1;i<=10;i++) model.addAttribute("score"+i, score[i]);
+				return "leaderboard.html";
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
-	@PostMapping("/leaderboard")
-	public String leaderboard(Model model, @RequestParam("selectedOption") String answer) {
+	@GetMapping("/leaderboard2")
+	public String leaderboard2(Model model) {
+		String answer = "Improving Credit";
+		HashMap<String, Integer> keys = new HashMap<>();
+		TreeMap<Integer, int[]> arr[] = new TreeMap[(int)1e5];
+		String keynames[] = new String[(int)1e5];
+		PriorityQueue<long[]> queue = queue(0);
+		CompletableFuture<Boolean> future = new CompletableFuture<>();
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(answer);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    String key = childSnapshot.getKey();
+                    arr[keys.size()+1] = new TreeMap<>();
+                    keys.put(key, keys.size()+1);
+                }
+                future.complete(true);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error: " + databaseError.getMessage());
+            }
+        });
+        try {
+			if(future.get()) {
+				for(Map.Entry<String, Integer> entry : keys.entrySet()) {
+					TreeMap<Integer, int[]> map = get(answer, entry.getKey());
+					arr[entry.getValue()] = map;
+					keynames[entry.getValue()] = entry.getKey();
+					int pts = 0;
+					int time = 0;
+					for(Map.Entry<Integer, int[]> ent : map.entrySet()) {
+						int a[] = ent.getValue();
+						pts += a[0];
+						if(a[1] != -1) time += a[1];
+					}
+					queue.add(new long[] {pts, time, entry.getValue()});
+				}
+				ArrayList<Integer> rank = new ArrayList<>();
+				ArrayList<String> users = new ArrayList<>();
+				ArrayList<Integer> points = new ArrayList<>();
+				ArrayList<Integer> penalty = new ArrayList<>();
+				ArrayList<Integer> score[] = new ArrayList[11];
+				for(int i=1;i<=10;i++) score[i] = new ArrayList<>();
+				int r = 1;
+				while(!queue.isEmpty()) {
+					long curr[] = queue.poll();
+					int index = (int)curr[2];
+					String getname = find(keynames[index]);
+					users.add(getname);
+					points.add((int)curr[0]);
+					penalty.add((int)curr[1]);
+					rank.add(r++);
+					TreeMap<Integer, int[]> cmap = arr[index];
+					for(Map.Entry<Integer, int[]> entry : cmap.entrySet()) {
+						int pt = entry.getValue()[0];
+						score[entry.getKey()].add(pt);
+					}
+				}
+				model.addAttribute("subject", answer);
+				model.addAttribute("rank", rank);
+				model.addAttribute("names", users);
+				model.addAttribute("pts", points);
+				model.addAttribute("penalty", penalty);
+				for(int i=1;i<=10;i++) model.addAttribute("score"+i, score[i]);
+				return "leaderboard.html";
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@GetMapping("/leaderboard3")
+	public String leaderboard3(Model model) {
+		String answer = "Saving";
+		HashMap<String, Integer> keys = new HashMap<>();
+		TreeMap<Integer, int[]> arr[] = new TreeMap[(int)1e5];
+		String keynames[] = new String[(int)1e5];
+		PriorityQueue<long[]> queue = queue(0);
+		CompletableFuture<Boolean> future = new CompletableFuture<>();
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(answer);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    String key = childSnapshot.getKey();
+                    arr[keys.size()+1] = new TreeMap<>();
+                    keys.put(key, keys.size()+1);
+                }
+                future.complete(true);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error: " + databaseError.getMessage());
+            }
+        });
+        try {
+			if(future.get()) {
+				for(Map.Entry<String, Integer> entry : keys.entrySet()) {
+					TreeMap<Integer, int[]> map = get(answer, entry.getKey());
+					arr[entry.getValue()] = map;
+					keynames[entry.getValue()] = entry.getKey();
+					int pts = 0;
+					int time = 0;
+					for(Map.Entry<Integer, int[]> ent : map.entrySet()) {
+						int a[] = ent.getValue();
+						pts += a[0];
+						if(a[1] != -1) time += a[1];
+					}
+					queue.add(new long[] {pts, time, entry.getValue()});
+				}
+				ArrayList<Integer> rank = new ArrayList<>();
+				ArrayList<String> users = new ArrayList<>();
+				ArrayList<Integer> points = new ArrayList<>();
+				ArrayList<Integer> penalty = new ArrayList<>();
+				ArrayList<Integer> score[] = new ArrayList[11];
+				for(int i=1;i<=10;i++) score[i] = new ArrayList<>();
+				int r = 1;
+				while(!queue.isEmpty()) {
+					long curr[] = queue.poll();
+					int index = (int)curr[2];
+					String getname = find(keynames[index]);
+					users.add(getname);
+					points.add((int)curr[0]);
+					penalty.add((int)curr[1]);
+					rank.add(r++);
+					TreeMap<Integer, int[]> cmap = arr[index];
+					for(Map.Entry<Integer, int[]> entry : cmap.entrySet()) {
+						int pt = entry.getValue()[0];
+						score[entry.getKey()].add(pt);
+					}
+				}
+				model.addAttribute("subject", answer);
+				model.addAttribute("rank", rank);
+				model.addAttribute("names", users);
+				model.addAttribute("pts", points);
+				model.addAttribute("penalty", penalty);
+				for(int i=1;i<=10;i++) model.addAttribute("score"+i, score[i]);
+				return "leaderboard.html";
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@GetMapping("/leaderboard4")
+	public String leaderboard4(Model model) {
+		String answer = "Borrowing and repaying debt";
+		HashMap<String, Integer> keys = new HashMap<>();
+		TreeMap<Integer, int[]> arr[] = new TreeMap[(int)1e5];
+		String keynames[] = new String[(int)1e5];
+		PriorityQueue<long[]> queue = queue(0);
+		CompletableFuture<Boolean> future = new CompletableFuture<>();
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(answer);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    String key = childSnapshot.getKey();
+                    arr[keys.size()+1] = new TreeMap<>();
+                    keys.put(key, keys.size()+1);
+                }
+                future.complete(true);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error: " + databaseError.getMessage());
+            }
+        });
+        try {
+			if(future.get()) {
+				for(Map.Entry<String, Integer> entry : keys.entrySet()) {
+					TreeMap<Integer, int[]> map = get(answer, entry.getKey());
+					arr[entry.getValue()] = map;
+					keynames[entry.getValue()] = entry.getKey();
+					int pts = 0;
+					int time = 0;
+					for(Map.Entry<Integer, int[]> ent : map.entrySet()) {
+						int a[] = ent.getValue();
+						pts += a[0];
+						if(a[1] != -1) time += a[1];
+					}
+					queue.add(new long[] {pts, time, entry.getValue()});
+				}
+				ArrayList<Integer> rank = new ArrayList<>();
+				ArrayList<String> users = new ArrayList<>();
+				ArrayList<Integer> points = new ArrayList<>();
+				ArrayList<Integer> penalty = new ArrayList<>();
+				ArrayList<Integer> score[] = new ArrayList[11];
+				for(int i=1;i<=10;i++) score[i] = new ArrayList<>();
+				int r = 1;
+				while(!queue.isEmpty()) {
+					long curr[] = queue.poll();
+					int index = (int)curr[2];
+					String getname = find(keynames[index]);
+					users.add(getname);
+					points.add((int)curr[0]);
+					penalty.add((int)curr[1]);
+					rank.add(r++);
+					TreeMap<Integer, int[]> cmap = arr[index];
+					for(Map.Entry<Integer, int[]> entry : cmap.entrySet()) {
+						int pt = entry.getValue()[0];
+						score[entry.getKey()].add(pt);
+					}
+				}
+				model.addAttribute("subject", answer);
+				model.addAttribute("rank", rank);
+				model.addAttribute("names", users);
+				model.addAttribute("pts", points);
+				model.addAttribute("penalty", penalty);
+				for(int i=1;i<=10;i++) model.addAttribute("score"+i, score[i]);
+				return "leaderboard.html";
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@GetMapping("/leaderboard5")
+	public String leaderboard5(Model model) {
+		String answer = "Investing";
 		HashMap<String, Integer> keys = new HashMap<>();
 		TreeMap<Integer, int[]> arr[] = new TreeMap[(int)1e5];
 		String keynames[] = new String[(int)1e5];
