@@ -127,9 +127,9 @@ public class MyController {
     	return "credit.html";
     }
     
-    @GetMapping("/debit")
-    public String debit(Model model) {
-    	return "debit.html";
+    @GetMapping("/debt")
+    public String debt(Model model) {
+    	return "debt.html";
     }
     
     @GetMapping("/invest")
