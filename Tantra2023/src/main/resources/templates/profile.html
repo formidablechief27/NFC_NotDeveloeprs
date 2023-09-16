@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Document</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -109,70 +109,59 @@
 
 <body>
     <div class="container emp-profile" style="margin-top: 80px;">
-        <form method="post">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                            alt="" />
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="profile-head">
-                        <h5 style="font-size: 50px;">
-                            Kshiti Ghelani
-                        </h5>
-                        <p class="proile-rating" style="font-size: 25px;">BATCH : <span
-                                style="font-size: 25px;">Expert</span></p>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                    aria-controls="home" aria-selected="true" style="font-size: 30px;">About</a>
-                            </li>
-                        </ul>
-                    </div>
+        <div class="row">
+            <div class="col-md-4"> 
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5 style="font-size: 50px;" th:text="${name}">
+                    </h5>
+                    <p class="proile-rating" style="font-size: 25px;">BATCH : <span
+                            style="font-size: 25px;"th:text="${batch}"></span></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true" style="font-size: 30px;">About</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-8">
-                    <div class="tab-content profile-tab" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label style="font-size: 30px;">User Id</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p style="font-size: 25px;">Kshiti123</p>
-                                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label style="font-size: 30px;">User Id</label>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label style="font-size: 30px;">Name</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p style="font-size: 25px;">Kshiti Ghelani</p>
-                                </div>
+                            <div class="col-md-6">
+                                <p style="font-size: 25px;" th:text="${name}"></p>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label style="font-size: 30px;">Email</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p style="font-size: 25px;">kshitighelani@gmail.com</p>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label style="font-size: 30px;">Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p style="font-size: 25px;" th:text="${email}"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label style="font-size: 30px;">Total Points</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p style="font-size: 25px;" th:text="${points}"></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
-    </form>
+        </div>
+</div>
     </div>
 </body>
 

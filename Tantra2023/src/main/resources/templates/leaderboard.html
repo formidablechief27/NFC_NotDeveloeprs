@@ -2,7 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    .abc {
+            border-radius: 20px;
+            border: 1px solid #fff;
+            background-color: #37517E;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform 80ms ease-in;
+        }
+  </style>
     <style>
         body {
             margin: 0;
@@ -42,9 +73,20 @@
     </style>
 </head>
 <body>
-    <h1>Quiz Leaderboard</h1>
+    <nav>
+        <div style="display: flex; justify-content: flex-start; height: 80px;background-color: #334b75; opacity: 0.9;">
+            <div style="width: 50%; display: flex; justify-content: flex-start;">
+                <h1 style="margin: auto;margin-left: 20px;color: white;">!DEVELOPERS</h1>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+    <div style = "text-align: center;">
+        <p style="font-size: 2rem;"><strong>Quiz Leaderboard</strong></p>
+    </div>
     <div>
-        <p>Subject : <span th:text="${subject}"></span></p>
+        <p style="display: flex; font-size: 1.2rem; margin-left: 20px;"><strong>Subject : <span th:text="${subject}"></span></strong></p>
     </div>
     <table>
         <thead>
@@ -66,6 +108,7 @@
             </tr>
         </thead>
         <tbody>
+            <strong>
             <tr th:each="id, i : ${names}">
                 <td th:text="${rank[i.index]}"></td>
                 <td th:text="${id}"></td>
@@ -82,6 +125,7 @@
                 <td th:text="${score9[i.index]}" th:class="${score9[i.index] == 10 or score9[i.index] == 9 or score9[i.index] == 8} ? 'green' : (${score9[i.index] == 7 or score9[i.index] == 6 or score9[i.index] == 5} ? 'orange' : 'red')"></td>
                 <td th:text="${score10[i.index]}" th:class="${score10[i.index] == 10 or score10[i.index] == 9 or score10[i.index] == 8} ? 'green' : (${score10[i.index] == 7 or score10[i.index] == 6 or score10[i.index] == 5} ? 'orange' : 'red')"></td>
             </tr>
+        </strong>
         </tbody>
     </table>
 </body>

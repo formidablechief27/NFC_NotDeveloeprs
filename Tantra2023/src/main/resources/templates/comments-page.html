@@ -2,40 +2,161 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Comments</title>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
     <style>
+        .abc {
+      border-radius: 20px;
+      border: 1px solid #fff;
+      background-color: #37517E;
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 12px 45px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 80ms ease-in;
+    }
+        body{
+
+        background-color: #eee;
+        }
+
+.card{
+
+background-color: #fff;
+border: none;
+}
+
+.form-color{
+
+background-color: #fafafa;
+
+}
+
+.form-control{
+
+height: 48px;
+border-radius: 25px;
+}
+
+.form-control:focus {
+color: #495057;
+background-color: #fff;
+border-color: #35b69f;
+outline: 0;
+box-shadow: none;
+text-indent: 10px;
+}
+
+.c-badge{
+background-color: #35b69f;
+color: white;
+height: 20px;
+font-size: 11px;
+width: 92px;
+border-radius: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 2px;
+}
+
+.comment-text{
+font-size: 13px;
+}
+
+.wish{
+
+color:#35b69f;
+}
+
+
+.user-feed{
+
+    font-size: 14px;
+    margin-top: 12px;
+}
         .item {
             margin-left: 20px;
         }
     </style>
 </head>
 <body>
+    <div class="container mt-5 mb-5">
 
+        <div class="row height d-flex justify-content-center align-items-center">
+
+          <div class="col-md-7">
+
+            <div class="card">
     <ul>
         <th:block th:if="${commentList.size() != 0}" th:each="index : ${#numbers.sequence(0, commentList.size() - 1)}">
-            <span th:text="${nameList[index][0]}"></span> : <span th:text="${commentList[index][0]}"></span>
+                <div class="d-flex flex-row p-3">
+                    <div class="w-100">
+                <div class="d-flex flex-row align-items-center">
+                  <span class="mr-2" th:text="${nameList[index][0]}"></span>
+                </div>
+                <p class="text-justify comment-text mb-0" th:text="${commentList[index][0]}"></p>
+                </div>
+                </div>
             <br>
             <ul>
                 <th:block th:if="${commentList[index].size() != 1}" th:each="index2 : ${#numbers.sequence(1, commentList[index].size() - 1)}">
-                    <li>
-                        <span class="item" th:text="${nameList[index][index2]}"></span> : <span class="item" th:text="${commentList[index][index2]}"></span>
-                    </li>
+                    
+                        <div class="d-flex flex-row p-3">
+                            <div class="w-100">
+                        <div class="d-flex flex-row align-items-center">
+                          <span class="mr-2" th:text="${nameList[index][index2]}"></span>
+                        </div>
+                        <p class="text-justify comment-text mb-0" th:text="${commentList[index][index2]}"></p>
+                        </div>
+                        </div>
+                    
                 <br>
                 </th>
             </ul>
-            <form action="/submit-reply" method="post">
+            <div class="mt-3 d-flex flex-row align-items-center p-3 form-color"><form action="/submit-reply" method="post">
                 <input type="hidden" name="parentCommentIndex" th:value="${index}" />
                 <input type="hidden" name="pageNumber" th:value="${pageNumber}" />
-                <input type="text" name="replyText" placeholder="Add a reply..." />
-                <button type="submit">Reply</button>
-            </form>
+                <div style = "display: flex;">
+                    <input type="text" class = "form-control" name="replyText" placeholder="Add a reply..." style = "margin-right: 10px;"/>
+                    <button type="submit" class = "abc">Reply</button>
+                </div>
+            </form></div>
             <br>
         </th>
     </ul>
-
+    <div class="mt-3 d-flex flex-row align-items-center p-3 form-color">
     <form action="/new-comment" method="post">
         <input type="hidden" name="pageNumber" th:value="${pageNumber}" />
-        <input type="text" name="newCommentText" placeholder="Add a new comment..." />
-        <button type="submit">Add Comment</button>
+        <div style = "display: flex;">
+            <input type="text" class = "form-control" name="newCommentText" placeholder="Add a new comment..." style = "margin-right: 10px;"/>
+            <button type="submit" class = "abc">Add Comment</button>
+        </div>
     </form>
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 </body>
 </html>
